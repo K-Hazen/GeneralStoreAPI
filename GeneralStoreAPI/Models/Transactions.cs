@@ -35,7 +35,7 @@ namespace GeneralStoreAPI.Models
         {
             get
             {
-                return (Product != null) ? Product.Price * ProductCount : 0; //has to add this conditional statement so that it would evaluate 
+                return (Product != null) ? Product.Price * ProductCount : 0; //has to add this conditional statement so that it would evaluate if it was null or not
             }
         }
 

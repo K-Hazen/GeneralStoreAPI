@@ -24,14 +24,16 @@ namespace GeneralStoreAPI.Controllers
             {
                 return BadRequest("Request body was empty. Please provide a model");
             }
-            
-            if(!ModelState.IsValid) //why can we access model state --> because if comes from API controller which we inherit from. Returns a good model stat but with and error saying... hey we are missing required info 
-            {
-                return BadRequest(ModelState); //
-            }
-            _context.Customers.Add(customer);  //accessing DbSet --> .Add is adding it to our table... Dbcontext helps us shuffle it there 
 
-            await _context.SaveChangesAsync(); //saves awaits the adding to the Dbcontext 
+            //why can we access model state --> because if comes from API controller which we inherit from ApiController. This if statement below returns a good model state but with and error saying... hey we are missing required info 
+
+            if (!ModelState.IsValid) 
+            {
+                return BadRequest(ModelState); 
+            }
+            _context.Customers.Add(customer);  //accessing DbSet --> .Add is adding it to our table... Dbcontext helps us shuffle it to database 
+
+            await _context.SaveChangesAsync(); //saves awaits the adding to the Dbcontext/database 
 
             return Ok();
         }

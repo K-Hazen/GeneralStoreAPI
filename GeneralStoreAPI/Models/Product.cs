@@ -10,7 +10,7 @@ namespace GeneralStoreAPI.Models
     {
         [Key]
 
-        public int Id { get; set; }  //why to leave it just as ID because when you call it... it should clarify the name
+        public int Id { get; set; }  //why to leave it just as ID --> because when you call it... it should clarify the name example product.Id
 
         [Required]
         public string ProductName { get; set; }
